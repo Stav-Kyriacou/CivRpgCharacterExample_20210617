@@ -40,6 +40,7 @@ namespace CivRpgCharacterExample_20210617.models
         }
         public void RemoveFromBackPack(string itemName) { 
             //TODO: call the method from Inventory that removes an item by name
+            this.BackPack.RemoveItem(itemName);
         }
         public string LookInBackPack() { 
             return this.BackPack.ListItems(); 

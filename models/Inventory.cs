@@ -32,12 +32,10 @@ namespace CivRpgCharacterExample_20210617.models
         }
         public void SortByWeight()
         {
-            //TODO: complete this by using the above method as a base 
             this.Items = this.Items.OrderBy(i => i.Weight).ToList();
         }
         public int GetCurrentCapacity()
         {
-            //TODO: return the total weight of items in the Items list
             int totalWeight = 0;
             foreach (Item item in Items)
             {
@@ -47,15 +45,13 @@ namespace CivRpgCharacterExample_20210617.models
         }
         public void AddNewItem(Item item)
         {
-            //TODO: Add the item to the backpack, if it doesn't make the backpack exceed WeightCapacity
-
             if (item.Weight <= this.WeightCapacity - GetCurrentCapacity())
             {
                 this.Items.Add(item);
             }
             else
             {
-                Console.WriteLine($"Could not add item: {item} to backpack, too heavy");
+                Console.WriteLine($"Could not add {item.Name} to backpack, too heavy");
             }
         }
 

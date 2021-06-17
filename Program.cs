@@ -11,11 +11,11 @@ namespace CivRpgCharacterExample_20210617
             Item stone = new Item("Stone", 1, 0);
             Item herb = new Item("Herb", 1, 2);
             Item hat = new Item("Magic Cap", 2, 100);
+            Item boulder = new Item("Boulder", 500, 1);
 
             Weapon hammer = new Weapon("Hammer", 20, 200, 10, 100);
-            //TODO: uncommment the below when you've created the Ranged and Magic classes
-            //Ranged bow = new Ranged("Bow", 10, 200, 5, 50, 1, 5);
-            //Magic wand = new Magic("Wand of Pestilence", 10, 200, 5, 50, 1, 5, 2);
+            Ranged bow = new Ranged("Bow", 10, 200, 5, 50, 1, 5);
+            Magic wand = new Magic("Wand of Pestilence", 10, 200, 5, 50, 1, 5, 2);
 
             RpgCharacter fred = new RpgCharacter("Fred", 200, 20);
             RpgCharacter defaultCharacter = new RpgCharacter();
@@ -23,15 +23,16 @@ namespace CivRpgCharacterExample_20210617
             fred.BackPack.AddNewItem(healthPotion);
             fred.BackPack.AddNewItem(stone);
             fred.BackPack.AddNewItem(hat);
-            //TODO: add herb to Fred's backpack
-            //TODO: add another Health Potion to Fred's backpack
-            //TODO: add hammer to Fred's backpack
+            fred.BackPack.AddNewItem(herb);
+            fred.BackPack.AddNewItem(healthPotion);
+            fred.BackPack.AddNewItem(hammer);
+            fred.BackPack.AddNewItem(boulder);
             
 
-            //TODO: Sort Fred's backpack by Weight
+            fred.BackPack.SortByWeight();
             System.Console.WriteLine($"Fred's backpack\n {fred.BackPack.ListItems()}");
-            //TODO: Print the current capacity of Fred's backpack
-            //TODO: Print the number of Health Potions in Fred's backpack
+            Console.WriteLine($"Current weight of Fred's backpack: {fred.BackPack.GetCurrentCapacity()}");
+            Console.WriteLine($"Number of Health Potions in Fred's backpack: {fred.BackPack.GetQuantity("Health Potion")}");
 
 
             defaultCharacter.BackPack.SortByName();
